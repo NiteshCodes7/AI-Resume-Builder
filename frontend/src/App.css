@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@theme{
+  --color-newPurple: #9f5bff;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
