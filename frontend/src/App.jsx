@@ -10,6 +10,7 @@ import SignInPage from "./pages/SignInPage";
 import Dashboard from "./pages/Dashboard";
 import { useUser } from "@clerk/clerk-react";
 import Header from "./components/custom/Header";
+import ResumeEditor from "./pages/ResumeEditor";
 
 function App() {
   const { user, isLoaded, isSignedIn } = useUser();
@@ -36,6 +37,12 @@ function App() {
           path="/dashboard" 
           element={isSignedIn ? <Dashboard /> : <Navigate to={"/auth-sign-in"} />} 
         />
+
+        <Route 
+          path="/dashboard/resume/:_id/edit" 
+          element={<ResumeEditor />} 
+        />
+
       </Routes>
 
     </Router>

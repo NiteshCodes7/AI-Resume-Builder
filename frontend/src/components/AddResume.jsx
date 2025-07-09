@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { PlusSquare } from "lucide-react";
+import { Loader2, PlusSquare } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -13,15 +13,19 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input"
 import { v4 as uuidv4 } from 'uuid';
 import { useAuth } from "@clerk/clerk-react";
+import { useNavigate } from "react-router-dom";
 
 const AddResume = () => {
     const [openDialog, setOpenDialog] = useState(false);
     const [resumeTitle, setResumeTitle] = useState(null);
+    const [loading, setLoading] = useState(false);
     const { getToken } = useAuth();
+    const navigate = useNavigate();
 
     const onCreate = async () =>{
       const uuid = uuidv4();
       const token = await getToken();
+      setLoading(true);
 
       try {
         const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/create-resume`,
@@ -32,9 +36,10 @@ const AddResume = () => {
             }
           }
         )
-
+        setLoading(false);
         setResumeTitle(null);
         setOpenDialog(false);
+        navigate("/dashboard/resume/:resumeId/edit");
         
       } catch (error) {
         console.log("Error sending response to backend", error);
@@ -55,7 +60,7 @@ const AddResume = () => {
           <DialogHeader>
             <DialogTitle>Create New Resume</DialogTitle>
             <DialogDescription>
-              <p>Add a Title for your New Resume</p>
+              Add a Title for your New Resume
             </DialogDescription>
             <Input 
               className="my-2" 
@@ -66,8 +71,9 @@ const AddResume = () => {
                 <Button onClick={() => setOpenDialog(!openDialog)} variant="ghost">Cancel</Button>
                 <Button 
                   onClick={() => onCreate()}
-                  disabled={!resumeTitle}
-                >Create</Button>
+                  disabled={!resumeTitle || loading}
+                > {loading ? <Loader2 className="animate-spin "/> : "Create"}
+                  </Button>
             </div>
           </DialogHeader>
         </DialogContent>
