@@ -36,10 +36,12 @@ const AddResume = () => {
             }
           }
         )
+        const createdResume = res.data;
+
         setLoading(false);
         setResumeTitle(null);
         setOpenDialog(false);
-        navigate("/dashboard/resume/:resumeId/edit");
+        navigate(`/dashboard/resume/${createdResume._id}/edit`);
         
       } catch (error) {
         console.log("Error sending response to backend", error);

@@ -11,6 +11,10 @@ import Dashboard from "./pages/Dashboard";
 import { useUser } from "@clerk/clerk-react";
 import Header from "./components/custom/Header";
 import ResumeEditor from "./pages/ResumeEditor";
+import { ResumeInfoProvider } from "./context/ResumeInfoContext";
+import { Toaster } from "@/components/ui/sonner"
+
+
 
 function App() {
   const { user, isLoaded, isSignedIn } = useUser();
@@ -19,7 +23,7 @@ function App() {
 
   return (
     <Router>
-
+      <Toaster />
       <Header />
 
       <Routes>
@@ -40,7 +44,11 @@ function App() {
 
         <Route 
           path="/dashboard/resume/:_id/edit" 
-          element={<ResumeEditor />} 
+          element={
+            <ResumeInfoProvider>
+              <ResumeEditor />
+            </ResumeInfoProvider>
+          } 
         />
 
       </Routes>

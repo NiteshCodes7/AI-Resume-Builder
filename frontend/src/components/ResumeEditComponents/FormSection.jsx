@@ -3,6 +3,7 @@ import PersonalDetail from '../form/PersonalDetail'
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, LayoutGrid } from 'lucide-react';
 import { useState } from 'react';
+import Summary from '../form/Summary';
 
 const FormSection = () => {
   const [activeFormState, setActiveFormState] = useState(1);
@@ -30,9 +31,11 @@ const FormSection = () => {
       </div>
 
       {/* Personal Details */}
-        {activeFormState === 1 ? <PersonalDetail enableNext={enableNext} /> : null}
+        {activeFormState === 1 ? <PersonalDetail enableNext={setEnableNext} /> : null}
+        
       {/* Summary */}
-
+        {activeFormState === 2 ? <Summary enableNext={setEnableNext} /> : null}
+        
       {/* Experience */}
 
       {/* Educational Detail */}

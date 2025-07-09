@@ -1,13 +1,70 @@
 import mongoose, { Schema } from "mongoose";
 
 const UserResumeMetaSchema = new Schema({
-    userId: { type: String, required: true },
-    userEmail: { type: String },
-    resumeId: { type: String, required: true },
-    resumeTitle: { type: String, default: "Untitled Resume" },
+    userId: {
+        type: String,
+        required: true,
+    },
+    userEmail: {
+        type: String,
+        required: true,
+    },
+    resumeId: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    resumeTitle: {
+        type: String,
+        required: true,
+    },
+    themeColor: {
+        type: String,
+        default: "#000", // default teal-700
+    },
 
-    createdAt: { type: Date, default: Date.now },
-    updatedAt: { type: Date, default: Date.now },
+    personalDetails: {
+        firstName: { type: String },
+        lastName: { type: String },
+        jobTitle: { type: String },
+        address: { type: String },
+        phone: { type: String },
+        email: { type: String }
+    },
+
+    summary: {
+        type: String,
+    },
+
+    education: [
+        {
+            degree: String,
+            institute: String,
+            year: String
+        }
+    ],
+
+    experience: [
+        {
+            position: String,
+            company: String,
+            duration: String,
+            description: String
+        }
+    ],
+
+    skills: [
+        {
+            id: String,
+            skill: String,
+            rating: Number
+        }
+    ],
+
+    lastUpdated: {
+        type: Date,
+        default: Date.now
+    }
 })
 
 export const userResume = new mongoose.model("userResume", UserResumeMetaSchema);

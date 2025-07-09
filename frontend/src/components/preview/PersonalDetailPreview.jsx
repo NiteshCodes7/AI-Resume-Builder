@@ -7,29 +7,35 @@ const PersonalDetailPreview = ({resumeInfo}) => {
         className='font-bold text-xl text-center'
         style={{color: resumeInfo?.themeColor}}
       >
-        {resumeInfo?.fullName}
+        {resumeInfo.personalDetails?.firstName} {resumeInfo.personalDetails?.lastName}
       </h2>
 
       <h2 
         className='font-medium text-center text-sm'
+        style={{color: resumeInfo?.themeColor}}
       >
-        {resumeInfo?.jobTitle}
+        {resumeInfo.personalDetails?.jobTitle}
       </h2>
 
-      <h2 className='font-normal text-center text-xs'>{resumeInfo?.address}</h2>
+      <h2 
+        className='font-normal text-center text-xs'
+        style={{color: resumeInfo?.themeColor}}
+      >
+          {resumeInfo.personalDetails?.address}
+      </h2>
 
       <div className='flex justify-between'>
         <h2 
           className='font-normal text-xs'
           style={{color: resumeInfo?.themeColor}}
         >
-          {resumeInfo?.phone}
+          {resumeInfo.personalDetails?.phone}
         </h2>
         <h2 
           className='font-normal text-xs'
           style={{color: resumeInfo?.themeColor}}
         >
-          {resumeInfo?.email}
+          {resumeInfo.personalDetails?.email}
         </h2>
       </div>
       <hr 
