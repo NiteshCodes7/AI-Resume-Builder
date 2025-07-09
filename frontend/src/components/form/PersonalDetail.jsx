@@ -52,7 +52,7 @@ const PersonalDetail = ({ enableNext }) => {
       console.error("❌ Error saving personal details:", error);
     } finally {
       setLoading(false);
-      toast("Details Updated");
+      toast("✅ Details Updated");
     }
   };
 

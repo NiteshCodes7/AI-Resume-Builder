@@ -1,6 +1,9 @@
 import dotenv from "dotenv";
 import { createClerkClient } from "@clerk/backend";
 import { userResume } from "../models/UserResume.model.js";
+import { GoogleGenAI } from "@google/genai";
+
+const ai = new GoogleGenAI(process.env.GEMINI_API_KEY);
 
 
 dotenv.config({
@@ -89,10 +92,55 @@ export const updateResume = async (req, res) => {
     if (!updated) {
       return res.status(404).json({ message: "Resume not found" });
     }
-
+    console.log(updateData);
     res.status(200).json(updated);
   } catch (error) {
     console.error("❌ Error updating resume:", error);
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+
+export const summaryWithAi = async (req, res) => {
+  const {jobTitle} = req.body;
+  
+  try {
+
+    const prompt = `
+        You are a professional resume writer. Based on the job title provided, generate a concise and impactful summary for a resume.
+
+        Job Title: "${jobTitle}"
+
+        Guidelines:
+        - Keep it under 3 sentences.
+        - Focus on skills, experience, and value the candidate brings.
+        - Avoid clichés and generic phrases.
+        - Make it ATS-friendly (use strong keywords).
+        - Do not include greetings or headings.
+
+        Now write the summary.
+        `;
+
+    const result = await ai.models.generateContent({   
+      model: "gemini-2.5-flash",   
+      contents: [
+        {
+          role: "user",
+          parts: [
+            {
+              text: prompt
+            }
+          ]
+        }
+      ]
+    })
+
+    const summary = await result.text;
+    console.log(summary);
+    res.status(200).json({summary});
+
+  } catch (error) {
+    console.error("Unable to write Summary", error);
+    res.status(500).json({ error: "AI Summary generation failed." })
+  }
+}

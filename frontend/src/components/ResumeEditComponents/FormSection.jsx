@@ -31,10 +31,10 @@ const FormSection = () => {
       </div>
 
       {/* Personal Details */}
-        {activeFormState === 1 ? <PersonalDetail enableNext={setEnableNext} /> : null}
+        {activeFormState === 1 ? <PersonalDetail enableNext={setEnableNext} /> : 
+         activeFormState === 2 ? <Summary enableNext={setEnableNext} /> : null}
         
       {/* Summary */}
-        {activeFormState === 2 ? <Summary enableNext={setEnableNext} /> : null}
         
       {/* Experience */}
 
