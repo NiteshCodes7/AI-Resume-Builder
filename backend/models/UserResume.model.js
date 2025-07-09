@@ -46,9 +46,12 @@ const UserResumeMetaSchema = new Schema({
 
     experience: [
         {
-            position: String,
-            company: String,
-            duration: String,
+            title: String,
+            companyName: String,
+            city: String,
+            state: String,
+            startDate: String,
+            endDate: String,
             description: String
         }
     ],

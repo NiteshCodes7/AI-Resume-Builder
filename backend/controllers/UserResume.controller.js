@@ -144,3 +144,49 @@ export const summaryWithAi = async (req, res) => {
     res.status(500).json({ error: "AI Summary generation failed." })
   }
 }
+
+
+export const descriptionWithAi = async (req, res) => {
+  const {title} = req.body;
+  
+  try {
+
+    const prompt = `
+        You are a professional resume writer. Write a concise, impactful job description for a resume based on the job title provided below.
+
+        Job Title: "${title}"
+
+        Guidelines:
+        - Keep the description within 3–4 bullet points or short sentences.
+        - Highlight key responsibilities, accomplishments, and relevant tools/technologies.
+        - Use action verbs and metrics where appropriate.
+        - Make it ATS-friendly and tailored to the role.
+        - Avoid clichés and overly generic statements.
+
+        Only return the description text. Do not add any headings, greetings, or extra formatting.
+        `
+
+    const result = await ai.models.generateContent({   
+      model: "gemini-2.5-flash",   
+      contents: [
+        {
+          role: "user",
+          parts: [
+            {
+              text: prompt
+            }
+          ]
+        }
+      ]
+    })
+
+    const response = await result.text;
+    const description = response.replace(/^\*\s?/gm, "").trim();
+    console.log(description);
+    res.status(200).json({description});
+
+  } catch (error) {
+    console.error("Unable to write Summary", error);
+    res.status(500).json({ error: "AI Summary generation failed." })
+  }
+}
