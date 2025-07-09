@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import { toast } from "sonner";
 import { useAuth } from "@clerk/clerk-react";
 import RichTextEditor from "../RichTextEditor";
-import { Brain } from "lucide-react";
+import { Brain, LoaderCircle } from "lucide-react";
 
 const formField = {
   title: "",
@@ -24,6 +24,7 @@ const Expirence = ({ enableNext }) => {
   const [expirenceList, setExpirenceList] = useState(  
     resumeInfo?.experience?.length > 0 ? resumeInfo.experience : [{ ...formField }]
     );
+  const [loading, setLoading] = useState(false);
   const [aiLoading, setAiLoading] = useState(false);
   const { _id } = useParams();
   const { getToken } = useAuth();
@@ -70,6 +71,7 @@ const Expirence = ({ enableNext }) => {
   };
 
   const onSave = async () => {
+    setLoading(true);
     try {
       const token = await getToken();
       const res = await axios.patch(
@@ -86,6 +88,8 @@ const Expirence = ({ enableNext }) => {
       enableNext(true);
     } catch (err) {
       toast.error("❌ Failed to save experience");
+    } finally {
+        setLoading(false);
     }
   };
 
@@ -230,7 +234,7 @@ const Expirence = ({ enableNext }) => {
                 </Button>
               )}
             </div>
-            <Button onClick={onSave}>Save</Button>
+            <Button onClick={onSave} disabled={loading}>{loading ? <LoaderCircle className="animate-spin"/> : "Save"}</Button>
           </div>
         </div>
       ))}
