@@ -87,7 +87,7 @@ const Summary = ({ enableNext }) => {
 
       <div className="mt-7">
         <div className="flex justify-between items-end">
-          <label>Add Summary</label>
+          <label>Add Summary <span className="text-red-500">*</span></label>
           <Button
             size="sm"
             variant="outline"
@@ -96,7 +96,7 @@ const Summary = ({ enableNext }) => {
           >
             {aiLoading ? (
               <>
-                <Brain className="h-4 w-4 animate-pulse" /> AI Thinking...
+                <Brain className="h-4 w-4 animate-pulse" /> <span className="animate-pulse">AI Thinking...</span>
               </>
             ) : (
               <>

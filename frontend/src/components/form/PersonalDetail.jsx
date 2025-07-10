@@ -73,27 +73,27 @@ const PersonalDetail = ({ enableNext }) => {
       <form onSubmit={onSave}>
         <div className='grid grid-cols-2 gap-3 mt-5'>
             <div>
-                <label className="text-sm">First Name</label>
+                <label className="text-sm">First Name <span className="text-red-500">*</span></label>
                 <Input name="firstName" defaultValue={resumeInfo.personalDetails?.firstName} required onChange={handleInputChange}/>
             </div>
             <div>
-                <label className="text-sm">Last Name</label>
+                <label className="text-sm">Last Name <span className="text-red-500">*</span></label>
                 <Input name="lastName" defaultValue={resumeInfo.personalDetails?.lastName} required onChange={handleInputChange}/>
             </div>
             <div className='col-span-2'>
-                <label className="text-sm">Job Title</label>
+                <label className="text-sm">Job Title <span className="text-red-500">*</span></label>
                 <Input name="jobTitle" defaultValue={resumeInfo.personalDetails?.jobTitle} required onChange={handleInputChange}/>
             </div>
             <div className='col-span-2'>
-                <label className="text-sm">Address</label>
+                <label className="text-sm">Address <span className="text-red-500">*</span></label>
                 <Input name="address" defaultValue={resumeInfo.personalDetails?.address} required onChange={handleInputChange}/>
             </div>
             <div>
-                <label className="text-sm">Phone</label>
+                <label className="text-sm">Phone <span className="text-red-500">*</span></label>
                 <Input name="phone" defaultValue={resumeInfo.personalDetails?.phone} required onChange={handleInputChange}/>
             </div>
             <div>
-                <label className="text-sm">Email</label>
+                <label className="text-sm">Email <span className="text-red-500">*</span></label>
                 <Input name="email" defaultValue={resumeInfo.personalDetails?.email} required onChange={handleInputChange}/>
             </div>
         </div>

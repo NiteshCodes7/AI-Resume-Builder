@@ -68,7 +68,7 @@ const ResumeView = () => {
 
               
               <Dialog>
-                <DialogTrigger className="flex justify-between items-center gap-2 px-4 py-2 bg-newPurple text-white rounded-md hover:bg-purple-600 transition cursor-pointer">
+                <DialogTrigger className="flex justify-between items-center font-medium text-sm gap-2 px-4 py-2 bg-newPurple text-white rounded-md hover:bg-purple-600 transition cursor-pointer">
                   <Share height={15} width={20} /> Share
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-md">

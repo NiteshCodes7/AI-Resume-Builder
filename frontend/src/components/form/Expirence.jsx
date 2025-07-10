@@ -142,7 +142,7 @@ const Expirence = ({ enableNext }) => {
         <div key={index}>
           <div className="grid grid-cols-2 gap-3 border p-3 my-5 rounded-lg">
             <div>
-              <label className="text-sm font-medium">Position Title</label>
+              <label className="text-sm font-medium">Position Title <span className="text-red-500">*</span></label>
               <Input
                 name="title"
                 value={item.title}
@@ -150,7 +150,7 @@ const Expirence = ({ enableNext }) => {
               />
             </div>
             <div>
-              <label className="text-sm font-medium">Company Name</label>
+              <label className="text-sm font-medium">Company Name <span className="text-red-500">*</span></label>
               <Input
                 name="companyName"
                 value={item.companyName}
@@ -158,7 +158,7 @@ const Expirence = ({ enableNext }) => {
               />
             </div>
             <div>
-              <label className="text-sm font-medium">City</label>
+              <label className="text-sm font-medium">City <span className="text-red-500">*</span></label>
               <Input
                 name="city"
                 value={item.city}
@@ -166,7 +166,7 @@ const Expirence = ({ enableNext }) => {
               />
             </div>
             <div>
-              <label className="text-sm font-medium">State</label>
+              <label className="text-sm font-medium">State <span className="text-red-500">*</span></label>
               <Input
                 name="state"
                 value={item.state}
@@ -174,7 +174,7 @@ const Expirence = ({ enableNext }) => {
               />
             </div>
             <div>
-              <label className="text-sm font-medium">Start Date</label>
+              <label className="text-sm font-medium">Start Date <span className="text-red-500">*</span></label>
               <Input
                 name="startDate"
                 value={item.startDate}
@@ -183,7 +183,7 @@ const Expirence = ({ enableNext }) => {
               />
             </div>
             <div>
-              <label className="text-sm font-medium">End Date</label>
+              <label className="text-sm font-medium">End Date <span className="text-red-500">*</span></label>
               <Input
                 name="endDate"
                 value={item.endDate}
@@ -193,7 +193,7 @@ const Expirence = ({ enableNext }) => {
             </div>
             <div className="col-span-2">
               <div className="flex justify-between my-2 items-center">
-                <label className="text-sm font-medium">Job Description</label>
+                <label className="text-sm font-medium">Job Description <span className="text-red-500">*</span></label>
                 <Button
                   onClick={() => generateDescription(index)}
                   variant="outline"
@@ -203,7 +203,7 @@ const Expirence = ({ enableNext }) => {
                   {aiLoading ? (
                     <>
                       <Brain className="h-4 w-4 animate-pulse" />
-                      AI Thinking...
+                      <span className="animate-pulse">AI Thinking...</span>
                     </>
                   ) : (
                     <>

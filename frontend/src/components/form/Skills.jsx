@@ -99,7 +99,7 @@ const Skills = ({ enableNext }) => {
           <div key={index}>
             <div className="flex justify-between items-center border p-3 rounded-lg my-2">
               <div>
-                <label className="text-xs font-medium">Name</label>
+                <label className="text-xs font-medium">Name <span className="text-red-500">*</span></label>
                 <Input name="skill" value={item.skill} onChange={(e) => handleChange(e, index)} />
               </div>
               <div id="rating">
