@@ -61,7 +61,6 @@ const UserResumeMetaSchema = new Schema({
 
     skills: [
         {
-            id: String,
             skill: String,
             rating: Number
         }

@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Summary from '../form/Summary';
 import Expirence from '../form/Expirence';
 import Education from '../form/Education';
+import Skills from '../form/Skills';
 
 const FormSection = () => {
   const [activeFormState, setActiveFormState] = useState(1);
@@ -22,9 +23,10 @@ const FormSection = () => {
               onClick={() => setActiveFormState(activeFormState-1)}
             >
               <ArrowLeft />
-            </Button>}
+            </Button>
+          }
           <Button 
-            className="flex gap-2" 
+            className={`${activeFormState === 5 ? "hidden" : "flex"} gap-2`}
             size="sm"
             onClick={() => setActiveFormState(activeFormState+1)}
             disabled={!enableNext}
@@ -36,7 +38,8 @@ const FormSection = () => {
         {activeFormState === 1 ? <PersonalDetail enableNext={setEnableNext} /> : 
          activeFormState === 2 ? <Summary enableNext={setEnableNext} /> : 
          activeFormState === 3 ? <Expirence enableNext={setEnableNext} /> : 
-         activeFormState === 4 ? <Education enableNext={setEnableNext} /> : null} 
+         activeFormState === 4 ? <Education enableNext={setEnableNext} /> : 
+         activeFormState === 5 ? <Skills /> : null} 
         
       {/* Summary */}
         

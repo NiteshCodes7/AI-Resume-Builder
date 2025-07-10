@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useState, useContext } from "react";
 import axios from "axios";
 import { LoaderCircle } from "lucide-react";
@@ -14,9 +14,13 @@ const PersonalDetail = ({ enableNext }) => {
   const { getToken } = useAuth();
   const [loading, setLoading] = useState(false);
   const { _id } = useParams();
+  const typingRef = useRef(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    typingRef.current = true;
+
+    enableNext(false);
 
     setResumeInfo((prev) => ({
       ...prev,
@@ -53,6 +57,12 @@ const PersonalDetail = ({ enableNext }) => {
       toast("✅ Details Updated");
     }
   };
+
+  useEffect(() => {
+    const allFilled = Object.values(resumeInfo.personalDetails || {}).every((val) => val.trim() !== ""); //converts each value into an array ["Nitesh", "Ghosh", "Frontend Developer"...]
+
+    if (allFilled && !typingRef.current) enableNext(true);
+  }, [resumeInfo.personalDetails]);
 
 
   return (
