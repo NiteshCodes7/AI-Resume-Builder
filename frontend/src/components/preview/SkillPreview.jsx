@@ -15,10 +15,10 @@ const SkillPreview = ({ resumeInfo }) => {
         {resumeInfo?.skills.map((skill, index) => (
             <div key={index} className='flex items-center justify-between'>
                 <h2 className='text-xs'>{skill.skill}</h2>
-                <div className='h-2 bg-gray-200 w-[120px]'>
+                <div className='h-2 w-2/3 rounded-md bg-gray-200 print-skill-bar-container'>
                     <div 
-                        className='h-2'
-                        style={{backgroundColor: resumeInfo?.themeColor, width:skill.rating*20 +'%'}}
+                        className='h-2 rounded-md print-skill-bar-fill'
+                        style={{backgroundColor: resumeInfo?.themeColor, width:parseInt(skill.rating*20) +'%'}}
                     >
                         
                     </div>

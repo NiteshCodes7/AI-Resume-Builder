@@ -11,7 +11,7 @@ import { Rating } from "@smastrom/react-rating";
 
 import "@smastrom/react-rating/style.css";
 
-const Skills = () => {
+const Skills = ({ enableNext }) => {
   const { resumeInfo, setResumeInfo } = useResumeInfo();
   const [loading, setLoading] = useState(false);
   const { getToken } = useAuth();
@@ -25,6 +25,7 @@ const Skills = () => {
   const [skillList, setSkillList] = useState([{ ...formData }]);
 
   const handleChange = (e, index) => {
+    enableNext(false);
     const { name, value } = e.target;
 
     const updated = [...skillList];
@@ -73,6 +74,7 @@ const Skills = () => {
       );
 
       setResumeInfo(res.data);
+      enableNext(true);
     } catch (error) {
       console.error("❌ Error saving Skills:", error);
     } finally {
@@ -100,7 +102,7 @@ const Skills = () => {
                 <label className="text-xs font-medium">Name</label>
                 <Input name="skill" value={item.skill} onChange={(e) => handleChange(e, index)} />
               </div>
-              <div>
+              <div id="rating">
                 <Rating
                   name="rating"
                   style={{ maxWidth: 120 }}
@@ -114,6 +116,7 @@ const Skills = () => {
                       ...prev,
                       skills: updated,
                     }));
+                    enableNext(false);
                   }}
                 />
               </div>

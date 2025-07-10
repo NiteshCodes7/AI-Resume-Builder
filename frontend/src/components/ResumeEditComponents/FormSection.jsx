@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PersonalDetail from '../form/PersonalDetail'
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, LayoutGrid } from 'lucide-react';
@@ -7,10 +7,19 @@ import Summary from '../form/Summary';
 import Expirence from '../form/Expirence';
 import Education from '../form/Education';
 import Skills from '../form/Skills';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const FormSection = () => {
   const [activeFormState, setActiveFormState] = useState(1);
   const [enableNext, setEnableNext] = useState(false);
+  const navigate = useNavigate();
+  const { _id } = useParams();
+
+  useEffect(() => {
+    if (activeFormState === 6) {
+      navigate(`/dashboard/resume/${_id}/view`);
+    }
+  }, [activeFormState]);
 
   return (
     <div>
@@ -26,7 +35,7 @@ const FormSection = () => {
             </Button>
           }
           <Button 
-            className={`${activeFormState === 5 ? "hidden" : "flex"} gap-2`}
+            className={`${activeFormState === 6 ? "hidden" : "flex"} gap-2`}
             size="sm"
             onClick={() => setActiveFormState(activeFormState+1)}
             disabled={!enableNext}
@@ -39,7 +48,8 @@ const FormSection = () => {
          activeFormState === 2 ? <Summary enableNext={setEnableNext} /> : 
          activeFormState === 3 ? <Expirence enableNext={setEnableNext} /> : 
          activeFormState === 4 ? <Education enableNext={setEnableNext} /> : 
-         activeFormState === 5 ? <Skills /> : null} 
+         activeFormState === 5 ? <Skills  enableNext={setEnableNext}/> : null
+        } 
         
       {/* Summary */}
         

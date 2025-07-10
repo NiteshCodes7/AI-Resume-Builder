@@ -3,6 +3,7 @@
 
 @theme{
   --color-newPurple: #9f5bff;
+  --color-orangeRed: #FF4433;
 }
 
 @custom-variant dark (&:is(.dark *));

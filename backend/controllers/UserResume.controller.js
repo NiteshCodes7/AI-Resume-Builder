@@ -190,3 +190,21 @@ export const descriptionWithAi = async (req, res) => {
     res.status(500).json({ error: "AI Summary generation failed." })
   }
 }
+
+export const removeResume = async (req, res) => {
+  const { _id } = req.params;
+  const userId = req.auth?.userId;
+
+  if(!userId){
+    return res.status(401).json({ error: "Unauthorized" });
+  }
+
+  try {
+    const result = await userResume.findOneAndDelete(_id);
+    return res.status(200).json({message: "Resume deleted Successfully"})
+  } catch (error) {
+    console.log("Failed to delete Resume", error);
+    return res.status(500).json({message: "Failed to delete Resume"});
+  }
+
+}

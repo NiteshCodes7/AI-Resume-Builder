@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 const Header = () => {
   const { user, isSignedIn } = useUser();
   return (
-    <div className="p-3 px-5 shadow-md flex justify-between items-center">
+    <div className="p-3 px-5 shadow-md flex justify-between items-center" id="no-print">
       <img src="/logo.svg" alt="logo" width={125} height={125} />
 
       {isSignedIn ? (

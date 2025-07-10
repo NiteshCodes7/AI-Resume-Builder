@@ -3,6 +3,7 @@ import { useAuth } from "@clerk/clerk-react";
 import axios from "axios";
 import AddResume from "../components/AddResume";
 import ResumeCardItem from "../components/ResumeCardItem";
+import { Loader } from "lucide-react";
 
 const Dashboard = () => {
   const [resumeList, setResumeList] = useState([]);
@@ -29,6 +30,8 @@ const Dashboard = () => {
     getResumes();
   }, []);
 
+  if(!resumeList) return <div className="fixed flex inset-0 justify-center items-center bg-white z-50"><Loader className="animate-spin w-8 h-8 text-gray-600"/></div>
+
   return (
     <div className="p-10 md:px-20 lg:px-32">
       <h2 className="font-bold text-3xl">My Resumes</h2>
@@ -38,7 +41,10 @@ const Dashboard = () => {
         <AddResume />
 
         {resumeList.map((resume, index) => (
-          <ResumeCardItem resume={resume} key={index} />
+          <ResumeCardItem resume={resume} key={index} onDelete={(deletedId) => {
+            setResumeList((prev) => prev.filter((r) => r._id !== deletedId));
+          }} />
+
         ))}
       </div>
     </div>

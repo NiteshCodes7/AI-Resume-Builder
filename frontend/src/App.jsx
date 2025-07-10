@@ -13,14 +13,22 @@ import Header from "./components/custom/Header";
 import ResumeEditor from "./pages/ResumeEditor";
 import { ResumeInfoProvider } from "./context/ResumeInfoContext";
 import { Toaster } from "@/components/ui/sonner"
+import ResumeView from "./pages/ResumeView";
+import { Loader } from "lucide-react";
 
 
 
 function App() {
   const { user, isLoaded, isSignedIn } = useUser();
 
-  if (!isLoaded) return <div>Loading...</div>;
+if (!isLoaded)
+  return (
+    <div className="fixed inset-0 flex items-center justify-center bg-white z-50">
+      <Loader className="animate-spin w-8 h-8 text-gray-600" />
+    </div>
+  );
 
+  
   return (
     <Router>
       <Toaster />
@@ -47,6 +55,15 @@ function App() {
           element={
             <ResumeInfoProvider>
               <ResumeEditor />
+            </ResumeInfoProvider>
+          } 
+        />
+
+        <Route 
+          path="/dashboard/resume/:_id/view" 
+          element={
+            <ResumeInfoProvider>
+              <ResumeView />
             </ResumeInfoProvider>
           } 
         />

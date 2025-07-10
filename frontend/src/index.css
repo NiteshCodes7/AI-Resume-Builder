@@ -23,6 +23,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   height: 100vh;
+  position: relative;
 }
 
 h1 {
@@ -35,7 +36,31 @@ ul {
   margin-left: 20px;
 }
 
+@media print{
 
+  *{
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  #no-print{
+    display: none;
+  }
+
+  #print-area{
+    display: block;
+    width: 100%;
+    height: 100vh;
+    max-width: 100%;
+    box-shadow: none;
+  }
+
+}
+
+@page{
+  margin: 0mm;
+  size: auto;
+}
 
 @media (prefers-color-scheme: light) {
   :root {

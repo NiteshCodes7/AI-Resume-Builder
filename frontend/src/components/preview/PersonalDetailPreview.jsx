@@ -7,7 +7,7 @@ const PersonalDetailPreview = ({resumeInfo}) => {
         className='font-bold text-xl text-center'
         style={{color: resumeInfo?.themeColor}}
       >
-        {resumeInfo.personalDetails?.firstName} {resumeInfo.personalDetails?.lastName}
+        {resumeInfo?.personalDetails?.firstName} {resumeInfo.personalDetails?.lastName}
       </h2>
 
       <h2 
@@ -21,7 +21,7 @@ const PersonalDetailPreview = ({resumeInfo}) => {
         className='font-normal text-center text-xs'
         style={{color: resumeInfo?.themeColor}}
       >
-          {resumeInfo.personalDetails?.address}
+          {resumeInfo?.personalDetails?.address}
       </h2>
 
       <div className='flex justify-between'>
@@ -29,13 +29,13 @@ const PersonalDetailPreview = ({resumeInfo}) => {
           className='font-normal text-xs'
           style={{color: resumeInfo?.themeColor}}
         >
-          {resumeInfo.personalDetails?.phone}
+          {resumeInfo?.personalDetails?.phone}
         </h2>
         <h2 
           className='font-normal text-xs'
           style={{color: resumeInfo?.themeColor}}
         >
-          {resumeInfo.personalDetails?.email}
+          {resumeInfo?.personalDetails?.email}
         </h2>
       </div>
       <hr 
