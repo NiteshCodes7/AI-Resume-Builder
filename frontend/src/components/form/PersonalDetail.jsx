@@ -16,7 +16,6 @@ const PersonalDetail = ({ enableNext }) => {
   const { _id } = useParams();
 
   const handleInputChange = (e) => {
-    enableNext(false);
     const { name, value } = e.target;
 
     setResumeInfo((prev) => ({
@@ -30,7 +29,6 @@ const PersonalDetail = ({ enableNext }) => {
 
   const onSave = async (e) => {
     e.preventDefault();
-    enableNext(true);
     setLoading(true);
 
     try {
@@ -47,7 +45,7 @@ const PersonalDetail = ({ enableNext }) => {
       );
 
       setResumeInfo(res.data);
-
+      enableNext(true);
     } catch (error) {
       console.error("❌ Error saving personal details:", error);
     } finally {

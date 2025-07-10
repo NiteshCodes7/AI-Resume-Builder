@@ -14,12 +14,9 @@ const Summary = ({ enableNext }) => {
   const [aiLoading, setAiLoading] = useState(false);
   const { getToken } = useAuth();
   const { _id } = useParams();
-
-  useEffect(() => {
-    enableNext(false);
-  }, []);
   
   const handleChange = (e) => {
+    enableNext(false);
     const { value } = e.target;
 
     setResumeInfo((prev) => ({
@@ -46,11 +43,11 @@ const Summary = ({ enableNext }) => {
       );
 
       setResumeInfo(res.data);
+      enableNext(true);
     } catch (error) {
       console.error("❌ Error saving Summary:", error);
     } finally {
       setLoading(false);
-      enableNext(true);
       toast("✅ Summary Updated");
     }
   };

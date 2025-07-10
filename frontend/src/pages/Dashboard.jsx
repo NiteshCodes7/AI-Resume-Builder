@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "@clerk/clerk-react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import AddResume from "../components/AddResume";
 import ResumeCardItem from "../components/ResumeCardItem";
 
 const Dashboard = () => {
   const [resumeList, setResumeList] = useState([]);
   const { getToken } = useAuth();
-  const navigate = useNavigate();
 
   const getResumes = async () => {
     const token = await getToken();

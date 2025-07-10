@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useResumeInfo } from "../../context/ResumeInfoContext";
 import { Button } from "@/components/ui/button";
@@ -21,9 +21,7 @@ const formField = {
 
 const Expirence = ({ enableNext }) => {
   const { resumeInfo, setResumeInfo } = useResumeInfo();
-  const [expirenceList, setExpirenceList] = useState(  
-    resumeInfo?.experience?.length > 0 ? resumeInfo.experience : [{ ...formField }]
-    );
+  const [expirenceList, setExpirenceList] = useState([{ ...formField }]);
   const [loading, setLoading] = useState(false);
   const [aiLoading, setAiLoading] = useState(false);
   const { _id } = useParams();
@@ -114,7 +112,8 @@ const Expirence = ({ enableNext }) => {
       );
 
       const updated = [...expirenceList];
-      updated[index].description = res.data.description;
+      updated[index].description = res.data.description; // updated[index]["description"] = res.data.description; ✅ here it search description as key
+                                                         //updated[index][description] = res.data.description; ❌ here it search description as value
 
       setExpirenceList(updated);
       setResumeInfo((prev) => ({
@@ -127,6 +126,12 @@ const Expirence = ({ enableNext }) => {
       setAiLoading(false);
     }
   };
+
+  useEffect(() => {
+    if(resumeInfo?.experience && resumeInfo?.experience.length > 0){
+      setExpirenceList(resumeInfo.experience)
+    }
+  }, [resumeInfo.experience])
 
   return (
     <div className="p-5 shadow-lg rounded-lg border-t-newPurple border-t-4 mt-10">

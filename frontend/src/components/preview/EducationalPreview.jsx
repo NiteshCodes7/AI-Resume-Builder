@@ -14,13 +14,13 @@ const EducationalPreview = ({ resumeInfo }) => {
         {resumeInfo?.education.map((education, index) => (
             <div key={index} className='my-5'>
                 <h2 
-                    className='text-sm font-bold'
+                    className='text-xs font-bold'
                     style={{color: resumeInfo?.themeColor}}
                 >
                     {education?.institute}
                 </h2>
-                <h2 className='text-sm flex justify-between'>{education?.degree}  {education?.major}
-                    <span>{education?.startYear}-{education?.endYear}</span>
+                <h2 className='text-xs flex justify-between'>{education?.degree}  {education?.major}
+                    <span>{education?.startDate} <i className='font-semibold'>to</i> {education?.endDate}</span>
                 </h2>
                 <p className='text-xs my-2'>
                     {education?.description}

@@ -38,9 +38,12 @@ const UserResumeMetaSchema = new Schema({
 
     education: [
         {
-            degree: String,
             institute: String,
-            year: String
+            degree: String,
+            major: String,
+            startDate: String,
+            endDate: String,
+            description: String,
         }
     ],
 
