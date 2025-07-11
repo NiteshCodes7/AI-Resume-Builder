@@ -4,6 +4,10 @@ import { userData, getUserData, getResume, updateResume, summaryWithAi, descript
 
 const resumeRoute = express.Router();
 
+resumeRoute.get("/ping", (req, res) => {
+    res.status(200).send("Server is awaken!");
+})
+
 resumeRoute.route("/create-resume").post(verifyClerkToken, userData);
 resumeRoute.route("/get-resume").get(verifyClerkToken, getUserData);
 resumeRoute.route("/dashboard/resume/:_id").get(verifyClerkToken, getResume);
