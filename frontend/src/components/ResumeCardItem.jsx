@@ -110,7 +110,9 @@ const ResumeCardItem = ({ resume, onDelete, onRename }) => {
   return (
     <div>
       <Link to={`/dashboard/resume/${resume._id}/edit`}>
-        <div className="p-14 bg-gradient-to-b from-pink-100 via-purple-200 to-blue-200 border border-t-4 border-t-orangeRed flex justify-center items-center h-[280px] rounded-lg hover:scale-105 transition-all hover:shadow-md hover:shadow-newPurple cursor-pointer text-black">
+        <div className="p-14 bg-gradient-to-b from-pink-100 via-purple-200 to-blue-200 border border-t-4 flex justify-center items-center h-[280px] rounded-lg hover:scale-105 transition-all hover:shadow-md hover:shadow-newPurple cursor-pointer text-black"
+            style={{ borderTopColor: resume.themeColor || '#FF4433' }}
+        >
           {/* <Notebook /> */}
           <img src="/cv.png" alt="CV" width={80} height={80} />
         </div>

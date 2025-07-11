@@ -8,6 +8,7 @@ import Expirence from '../form/Expirence';
 import Education from '../form/Education';
 import Skills from '../form/Skills';
 import { useNavigate, useParams } from 'react-router-dom';
+import ThemeColor from '../ThemeColor';
 
 const FormSection = () => {
   const [activeFormState, setActiveFormState] = useState(1);
@@ -24,7 +25,7 @@ const FormSection = () => {
   return (
     <div>
       <div className='flex items-center justify-between'>
-        <Button variant={"outline"} size="sm" className="flex gap-2"><LayoutGrid /> Theme</Button>
+        <ThemeColor />
         <div className='flex gap-2'>
           {activeFormState > 1 && 
             <Button 
