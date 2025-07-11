@@ -30,7 +30,7 @@ const Dashboard = () => {
     getResumes();
   }, []);
 
-  if (!resumeList)
+  if (!Array.isArray(resumeList) || resumeList.length === 0)
     return (
       <div className="fixed flex inset-0 justify-center items-center bg-white z-50">
         <Loader className="animate-spin w-8 h-8 text-gray-600" />
@@ -45,25 +45,25 @@ const Dashboard = () => {
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mt-10 gap-5">
         <AddResume />
 
-      {Array.isArray(resumeList) &&
-        resumeList.map((resume) => (
-          <ResumeCardItem
-            resume={resume}
-            key={resume._id}
-            onDelete={(deletedId) => {
-              setResumeList((prev) => {
-                prev.filter((r) => r._id !== deletedId);
-              });
-            }}
-            onRename={(updatedId, newTitle) => {
-              setResumeList((prev) =>
-                prev.map((r) =>
-                  r._id === updatedId ? { ...r, resumeTitle: newTitle } : r
-                )
-              );
-            }}
-          />
-        ))}
+        {Array.isArray(resumeList) &&
+          resumeList.map((resume) => (
+            <ResumeCardItem
+              resume={resume}
+              key={resume._id}
+              onDelete={(deletedId) => {
+                setResumeList((prev) =>
+                  prev.filter((r) => r._id !== deletedId)
+                );
+              }}
+              onRename={(updatedId, newTitle) => {
+                setResumeList((prev) =>
+                  prev.map((r) =>
+                    r._id === updatedId ? { ...r, resumeTitle: newTitle } : r
+                  )
+                );
+              }}
+            />
+          ))}
       </div>
     </div>
   );
