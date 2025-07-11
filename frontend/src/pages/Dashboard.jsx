@@ -30,7 +30,12 @@ const Dashboard = () => {
     getResumes();
   }, []);
 
-  if(!resumeList) return <div className="fixed flex inset-0 justify-center items-center bg-white z-50"><Loader className="animate-spin w-8 h-8 text-gray-600"/></div>
+  if (!resumeList)
+    return (
+      <div className="fixed flex inset-0 justify-center items-center bg-white z-50">
+        <Loader className="animate-spin w-8 h-8 text-gray-600" />
+      </div>
+    );
 
   return (
     <div className="p-10 md:px-20 lg:px-32">
@@ -40,11 +45,23 @@ const Dashboard = () => {
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mt-10 gap-5">
         <AddResume />
 
-        {resumeList.map((resume, index) => (
-          <ResumeCardItem resume={resume} key={index} onDelete={(deletedId) => {
-            setResumeList((prev) => prev.filter((r) => r._id !== deletedId));
-          }} />
-
+        {resumeList.map((resume) => (
+          <ResumeCardItem
+            resume={resume}
+            key={resume._id}
+            onDelete={(deletedId) => {
+              setResumeList((prev) => {
+                prev.filter((r) => r._id !== deletedId);
+              });
+            }}
+            onRename={(updatedId, newTitle) => {
+              setResumeList((prev) =>
+                prev.map((r) =>
+                  r._id === updatedId ? { ...r, resumeTitle: newTitle } : r
+                )
+              );
+            }}
+          />
         ))}
       </div>
     </div>

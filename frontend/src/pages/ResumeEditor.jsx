@@ -5,6 +5,7 @@ import { useResumeInfo } from "../context/ResumeInfoContext";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "@clerk/clerk-react";
+import { Loader } from "lucide-react";
 
 const ResumeEditor = () => {
   const {resumeInfo, setResumeInfo} = useResumeInfo();
@@ -32,7 +33,9 @@ const ResumeEditor = () => {
     if (_id) fetchResume();
   }, [_id, getToken]);
 
-  if (!resumeInfo) return <div className="p-10">Loading...</div>;
+  if (!resumeInfo) return <div className="fixed flex inset-0 justify-center items-center bg-white z-50">
+        <Loader className="animate-spin w-8 h-8 text-gray-600" />
+      </div>
 
   return (
       <div className="grid grid-cols-1 md:grid-cols-2 p-10 gap-10">

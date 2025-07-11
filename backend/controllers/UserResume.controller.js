@@ -192,7 +192,6 @@ export const descriptionWithAi = async (req, res) => {
 }
 
 export const removeResume = async (req, res) => {
-  const { _id } = req.params;
   const userId = req.auth?.userId;
 
   if(!userId){
@@ -200,11 +199,17 @@ export const removeResume = async (req, res) => {
   }
 
   try {
-    const result = await userResume.findOneAndDelete(_id);
-    return res.status(200).json({message: "Resume deleted Successfully"})
-  } catch (error) {
-    console.log("Failed to delete Resume", error);
-    return res.status(500).json({message: "Failed to delete Resume"});
-  }
+    const { _id } = req.params;
 
+    const result = await userResume.findByIdAndDelete(_id);
+
+    if (!result) {
+      return res.status(404).json({ error: "Resume not found" });
+    }
+
+    res.json({ message: "Resume deleted", _id });
+  } catch (err) {
+    console.error("❌ Delete error:", err);
+    res.status(500).json({ error: "Server error" });
+  }
 }

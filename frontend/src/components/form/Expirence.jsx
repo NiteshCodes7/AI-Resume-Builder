@@ -137,6 +137,8 @@ const Expirence = ({ enableNext }) => {
     <div className="p-5 shadow-lg rounded-lg border-t-newPurple border-t-4 mt-10">
       <h2 className="font-bold text-lg">Professional Experience</h2>
       <p>Add your previous job experience</p>
+      <p className="text-gray-400 text-xs">* If you don't have one skip to next page.</p>
+
 
       {expirenceList.map((item, index) => (
         <div key={index}>

@@ -48,6 +48,8 @@ const AddResume = () => {
       }
     }
 
+    if(!navigate) return <div className="fixed flex inset-0 justify-center items-center bg-white z-50"><Loader className="animate-spin w-8 h-8 text-gray-600"/></div>
+
   return (
     <div>
       <div 
