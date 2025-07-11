@@ -61,4 +61,4 @@ This project is licensed under the MIT License.
 ---
 
 ## Contact &nbsp;![Contact Icon](https://img.icons8.com/color/48/000000/email.png)
-For questions or feedback, please contact [your.email@example.com](mailto:workwithnites@gmail.com).
+For questions or feedback, please contact [(mailto:workwithnites@gmail.com)]
