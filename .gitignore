@@ -6,8 +6,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # Build output
-frontend/dist/
-backend/build/
+dist/
+build/
 out/
 coverage/
 
