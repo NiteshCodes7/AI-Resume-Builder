@@ -20,7 +20,7 @@ const UserResumeMetaSchema = new Schema({
     },
     themeColor: {
         type: String,
-        default: "#000", // default teal-700
+        default: "#000",
     },
 
     personalDetails: {
