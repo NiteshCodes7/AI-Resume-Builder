@@ -23,8 +23,8 @@ const HomePage = () => {
             to="https://github.com/NiteshCodes7"
             className="flex items-center gap-1 text-black hover:underline"
           >
-            <Github className="w-4 h-4" />
-            <span>My projects on GitHub &gt;</span>
+            <Github className="w-4 h-4 text-black" />
+            <span className="text-black">My projects on GitHub &gt;</span>
           </Link>
         </div>
 
