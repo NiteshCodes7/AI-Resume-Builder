@@ -6,7 +6,11 @@ const resumeRoute = express.Router();
 
 resumeRoute.post("/ping", (req, res) => {
     res.status(200).send("Server is awaken!");
-})
+});
+
+resumeRoute.get("/", (req, res) => {
+    res.status(200).send("Resume API is live!");
+});
 
 resumeRoute.route("/create-resume").post(verifyClerkToken, userData);
 resumeRoute.route("/get-resume").get(verifyClerkToken, getUserData);
