@@ -15,7 +15,6 @@ import { ResumeInfoProvider } from "./context/ResumeInfoContext";
 import { Toaster } from "@/components/ui/sonner"
 import ResumeView from "./pages/ResumeView";
 import { Loader } from "lucide-react";
-import ResumeOptimizer from "./pages/ResumeOptimizer";
 
 
 
