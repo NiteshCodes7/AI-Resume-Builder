@@ -1,6 +1,6 @@
 import express, { urlencoded } from "express";
 import cors from "cors";
-import { clerkMiddleware } from "@clerk/express"
+import { clerkMiddleware } from "@clerk/express";
 
 const app = express();
 

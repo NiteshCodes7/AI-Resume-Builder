@@ -12,7 +12,7 @@ import {
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center px-4 py-16 gap-24 overflow-x-hidden bg-white mt-10">
+    <div className="min-h-screen flex flex-col items-center px-4 py-16 gap-24 overflow-x-hidden">
       {/* Hero Section */}
       <div className="flex flex-col justify-center items-center gap-6 max-w-4xl text-center">
         <div className="flex justify-between items-center gap-3 bg-gray-100 rounded-4xl p-2 max-w-[380px]">
@@ -35,7 +35,9 @@ const HomePage = () => {
           Effortlessly craft a professional resume in minutes using advanced AI
           technology.
         </p>
-        <Button className="text-lg px-6 py-2">Get Started &gt;</Button>
+        <Link to="/dashboard">
+          <Button className="text-lg px-6 py-2">Get Started &gt;</Button>
+        </Link>
       </div>
 
       {/* How it Works Section */}

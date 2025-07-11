@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 const Header = () => {
   const { user, isSignedIn } = useUser();
   return (
-    <div className="fixed top-0 left-0 w-full p-3 px-5 shadow-md bg-white flex justify-between items-center z-50" id="no-print">
+    <div className="w-full p-3 px-5 shadow-md bg-white flex justify-between items-center z-50" id="no-print">
       <Link to="/">
         <img src="/logo.svg" alt="logo" width={125} height={125} />
       </Link>
