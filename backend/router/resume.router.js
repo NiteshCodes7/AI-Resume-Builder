@@ -4,7 +4,7 @@ import { userData, getUserData, getResume, updateResume, summaryWithAi, descript
 
 const resumeRoute = express.Router();
 
-resumeRoute.get("/ping", (req, res) => {
+resumeRoute.post("/ping", (req, res) => {
     res.status(200).send("Server is awaken!");
 })
 
