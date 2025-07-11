@@ -24,7 +24,7 @@ A modern web application for creating professional resumes powered by AI. This p
 - **Node.js** (Runtime)
 - **Express** (Web framework)
 - **MongoDB** (Database)
-- **OpenAI API** (AI resume suggestions)
+- **Gemini API** (AI resume suggestions)
 
 ---
 
@@ -41,11 +41,11 @@ A modern web application for creating professional resumes powered by AI. This p
     ```
 3. **Start the backend**
     ```bash
-    npm run server
+    npm run dev
     ```
 4. **Start the frontend**
     ```bash
-    npm start
+    npm run dev
     ```
 
 ---
@@ -61,4 +61,4 @@ This project is licensed under the MIT License.
 ---
 
 ## Contact &nbsp;![Contact Icon](https://img.icons8.com/color/48/000000/email.png)
-For questions or feedback, please contact [your.email@example.com](mailto:your.email@example.com).
+For questions or feedback, please contact [your.email@example.com](mailto:workwithnites@gmail.com).
