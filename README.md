@@ -1,48 +1,51 @@
-# AI Resume Builder &nbsp;![AI Icon](https://img.icons8.com/color/48/000000/artificial-intelligence.png)
+# AI Resume Builder <img src="https://img.icons8.com/color/24/artificial-intelligence.png" alt="AI Icon"/>
 
 A modern web application for creating professional resumes powered by AI. This project features a robust backend and an intuitive frontend for seamless resume generation and management.
 
 ---
 
-## Features &nbsp;![Features Icon](https://img.icons8.com/fluency/48/000000/checklist.png)
-- ✨ AI-powered resume suggestions
-- 📝 Customizable templates
-- 📄 PDF export
-- 🔒 Secure user authentication
-- 🗂️ Resume management dashboard
+## Features <img src="https://img.icons8.com/fluency/24/checklist.png" alt="Features Icon"/>
+- ✨ AI-powered resume suggestions  
+- 📝 Customizable templates  
+- 📄 PDF export  
+- 🔒 Secure user authentication  
+- 🗂️ Resume management dashboard  
 
 ---
 
 ## Tech Stack
 
-### Frontend &nbsp;![Frontend Icon](https://img.icons8.com/color/48/000000/react-native.png)
-- **React** (UI library)
-- **Tailwind CSS** (Styling)
-- **Axios** (API requests)
+### Frontend <img src="https://img.icons8.com/color/24/react-native.png" alt="Frontend Icon"/>
+- **React** – UI library  
+- **Tailwind CSS** – Utility-first styling  
+- **Axios** – API handling  
 
-### Backend &nbsp;![Backend Icon](https://img.icons8.com/color/48/000000/nodejs.png)
-- **Node.js** (Runtime)
-- **Express** (Web framework)
-- **MongoDB** (Database)
-- **Gemini API** (AI resume suggestions)
+### Backend <img src="https://img.icons8.com/color/24/nodejs.png" alt="Backend Icon"/>
+- **Node.js** – JavaScript runtime  
+- **Express** – Web framework  
+- **MongoDB** – NoSQL database  
+- **Gemini API** – AI-powered resume optimization  
 
 ---
 
-## Getting Started &nbsp;![Start Icon](https://img.icons8.com/color/48/000000/play.png)
+## Getting Started <img src="https://img.icons8.com/color/24/play.png" alt="Start Icon"/>
 
 1. **Clone the repository**
     ```bash
     git clone https://github.com/yourusername/AI-Resume-Builder.git
     ```
+
 2. **Install dependencies**
     ```bash
     cd AI-Resume-Builder
     npm install
     ```
+
 3. **Start the backend**
     ```bash
     npm run dev
     ```
+
 4. **Start the frontend**
     ```bash
     npm run dev
@@ -50,15 +53,15 @@ A modern web application for creating professional resumes powered by AI. This p
 
 ---
 
-## Contributing &nbsp;![Contribute Icon](https://img.icons8.com/color/48/000000/git.png)
+## Contributing <img src="https://img.icons8.com/color/24/git.png" alt="Contribute Icon"/>
 Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
 ---
 
-## License &nbsp;![License Icon](https://img.icons8.com/color/48/000000/license.png)
-This project is licensed under the MIT License.
+## License <img src="https://img.icons8.com/color/24/certificate.png" alt="License Icon"/>
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## Contact &nbsp;![Contact Icon](https://img.icons8.com/color/48/000000/email.png)
-For questions or feedback, please contact [(mailto:workwithnites@gmail.com)]
+## Contact <img src="https://img.icons8.com/color/24/email.png" alt="Contact Icon"/>
+For questions or feedback, feel free to reach out at: [workwithnites@gmail.com](mailto:workwithnites@gmail.com)
