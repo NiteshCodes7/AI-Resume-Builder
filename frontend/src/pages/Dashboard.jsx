@@ -7,6 +7,7 @@ import { Loader } from "lucide-react";
 
 const Dashboard = () => {
   const [resumeList, setResumeList] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { getToken } = useAuth();
 
   const getResumes = async () => {
@@ -20,9 +21,11 @@ const Dashboard = () => {
           },
         }
       );
-      setResumeList(res.data);
+      setResumeList(res.data || []);
     } catch (error) {
       console.error("❌ Cannot fetch resumes", error);
+    }finally{
+      setLoading(false);
     }
   };
 
@@ -30,7 +33,7 @@ const Dashboard = () => {
     getResumes();
   }, []);
 
-  if (!Array.isArray(resumeList) || resumeList.length === 0)
+  if (!Array.isArray(resumeList))
     return (
       <div className="fixed flex inset-0 justify-center items-center bg-white z-50">
         <Loader className="animate-spin w-8 h-8 text-gray-600" />
